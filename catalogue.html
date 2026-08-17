@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catalogue complet des produits SIGUI DA SAGO à Niamana. Produits frais, confiseries, boissons, épicerie et commande rapide par WhatsApp.">
+    <title>Catalogue Produits | SIGUI DA SAGO Niamana</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="logo-mark.webp">
+    <link rel="shortcut icon" type="image/webp" href="logo-mark.webp">
+    <link rel="apple-touch-icon" href="logo-mark.webp">
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SIGUI DA SAGO">
+    <meta property="og:title" content="Catalogue Produits | SIGUI DA SAGO Niamana">
+    <meta property="og:description" content="Découvrez tous les produits disponibles dans votre magasin de proximité à Niamana et commandez facilement sur WhatsApp.">
+    <meta property="og:image" content="logo-sigui-da-sago.webp">
+
+    <link rel="stylesheet" href="site.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body class="catalog-page">
+    <header>
+        <nav class="navbar">
+            <a class="brand" href="index.html" aria-label="SIGUI DA SAGO - Accueil">
+                <img src="logo-mark.webp" alt="Logo SIGUI DA SAGO">
+                <span>SIGUI DA SAGO</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#accueil">Accueil</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#produits">Produits</a></li>
+                <li><a href="catalogue.html" class="active">Catalogue</a></li>
+                <li><a href="index.html#livraison">Livraison</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <a href="index.html#livraison" class="btn header-order">Commander</a>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="catalog-hero">
+            <span class="eyebrow"><i class="fas fa-store" aria-hidden="true"></i> Magasin SIGUI DA SAGO à Niamana</span>
+            <h1>Notre Catalogue Produits</h1>
+            <p>Parcourez notre sélection complète d’articles disponibles en magasin. Cliquez sur un produit pour le commander directement via WhatsApp !</p>
+
+            <div class="search-container">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input type="text" id="catalogSearch" placeholder="Rechercher un produit (ex. Kinder, Riz, Huile, Céréales...)" aria-label="Rechercher un produit">
+            </div>
+
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Tous les produits</button>
+                <button class="filter-btn" data-filter="friandises"><i class="fas fa-candy-cane"></i> Friandises & Chocolats</button>
+                <button class="filter-btn" data-filter="biscuits"><i class="fas fa-cookie-bite"></i> Biscuits & Snacks</button>
+                <button class="filter-btn" data-filter="petit-dejeuner"><i class="fas fa-bowl-rice"></i> Petit-Déjeuner</button>
+                <button class="filter-btn" data-filter="epicerie"><i class="fas fa-basket-shopping"></i> Épicerie & Ingrédients</button>
+                <button class="filter-btn" data-filter="boissons"><i class="fas fa-bottle-water"></i> Boissons</button>
+                <button class="filter-btn" data-filter="entretien"><i class="fas fa-pump-soap"></i> Entretien & Hygiène</button>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <div class="catalog-grid" id="catalogGrid">
+                
+                <!-- Produit 1 -->
+                <article class="catalog-card" data-category="friandises">
+                    <div class="catalog-card-img">
+                        <img src="image-produit-1.webp" alt="Friandises & Confiseries Kinder, Snickers, KitKat" loading="lazy">
+                        <span class="catalog-card-badge">À partager</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Friandises & Confiseries</h3>
+                        <p>Sélection gourmande : Kinder Maxi, Snickers, KitKat, Bueno et bonbons appréciés de toute la famille.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Friandises%20%26%20Confiseries" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 2 -->
+                <article class="catalog-card" data-category="biscuits">
+                    <div class="catalog-card-img">
+                        <img src="image-produit-2.webp" alt="Assortiment Barres & Biscuits" loading="lazy">
+                        <span class="catalog-card-badge">Incontournable</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Barres Chocolatées & Biscuits</h3>
+                        <p>Large choix de barres énergétiques et biscuits : Duplo, Twix, Lion, Crunch, Nesquik et Hanuta.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Barres%20Chocolat%C3%A9es%20%26%20Biscuits" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 3 -->
+                <article class="catalog-card" data-category="friandises">
+                    <div class="catalog-card-img">
+                        <img src="image-produit-3.webp" alt="Chocolats Premium Lindt & Ghirardelli" loading="lazy">
+                        <span class="catalog-card-badge">Sélection Premium</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Chocolats Noir & Pralinés Premium</h3>
+                        <p>Tablettes de chocolat fin 70% à 86% cacao : Lindt Excellence, Ghirardelli, Valrhona et Godiva.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Chocolats%20Noir%20%26%20Pralin%C3%A9s%20Premium" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 4 -->
+                <article class="catalog-card" data-category="petit-dejeuner">
+                    <div class="catalog-card-img">
+                        <img src="image-produit-4.webp" alt="Céréales Kellogg's Corn Flakes et Rice Krispies" loading="lazy">
+                        <span class="catalog-card-badge">Petit-Déjeuner</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Céréales Kellogg's & Petit-Déjeuner</h3>
+                        <p>Gamme complète de céréales du matin : Corn Flakes, Rice Krispies, Frosted Flakes et Raisin Bran.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20C%C3%A9r%C3%A9ales%20Kellogg%27s" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 5 -->
+                <article class="catalog-card" data-category="epicerie">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (1).jpeg" alt="Pack Épicerie Générale" loading="lazy">
+                        <span class="catalog-card-badge">Essentiel</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Pack Épicerie & Ingrédients Quotidien</h3>
+                        <p>Produits de première nécessité pour la cuisine : riz, sucre, farine et produits locaux sélection de Niamana.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Pack%20%C3%89picerie%20%26%20Ingr%C3%A9dients" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 6 -->
+                <article class="catalog-card" data-category="epicerie">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (2).jpeg" alt="Huiles et Condiments de cuisine" loading="lazy">
+                        <span class="catalog-card-badge">Cuisine</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Huiles Végétales & Assaisonnements</h3>
+                        <p>Huiles de cuisson de qualité, condiments, sauces et concentrés de tomate pour vos repas.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Huiles%20V%C3%A9g%C3%A9tales%20%26%20Assaisonnements" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 7 -->
+                <article class="catalog-card" data-category="entretien">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (3).jpeg" alt="Produits de ménage et entretien" loading="lazy">
+                        <span class="catalog-card-badge">Ménage</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Produits d’Entretien & Nettoyage</h3>
+                        <p>Lessives, savons, liquides vaisselle et nettoyants multi-usages pour la propreté de la maison.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Produits%20d%27Entretien" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 8 -->
+                <article class="catalog-card" data-category="boissons">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (5).jpeg" alt="Jus et Boissons rafraîchissantes" loading="lazy">
+                        <span class="catalog-card-badge">Rafraîchissant</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Jus de Fruits & Boissons Fraîches</h3>
+                        <p>Sélection de jus naturels, sodas et boissons fraîches indispensables pour vous rafraîchir.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Jus%20de%20Fruits%20%26%20Boissons" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 9 -->
+                <article class="catalog-card" data-category="epicerie">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (6).jpeg" alt="Produits frais et épicerie fine" loading="lazy">
+                        <span class="catalog-card-badge">Fraîcheur</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Épicerie Fine & Sélection Magasin</h3>
+                        <p>Produits sélectionnés par l'équipe SIGUI DA SAGO pour leur qualité et leur rapport qualité-prix.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20%C3%89picerie%20Fine" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 10 -->
+                <article class="catalog-card" data-category="biscuits">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (3).jpeg" alt="Gâteaux et Biscuits du goûter" loading="lazy">
+                        <span class="catalog-card-badge">Goûter</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Gâteaux, Cookie & Biscuits Goûter</h3>
+                        <p>Biscuits croustillants, gâteaux fourrés et snacks parfaits pour les enfants et le goûter quotidien.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20G%C3%A2teaux%20%26%20Biscuits" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 11 -->
+                <article class="catalog-card" data-category="petit-dejeuner">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (4).jpeg" alt="Laits et Produits Laitiers" loading="lazy">
+                        <span class="catalog-card-badge">Laitier</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Laits en Poudre & Produits Laitiers</h3>
+                        <p>Laits concentrés, lait en poudre pour le café/thé et produits laitiers essentiels pour le matin.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Laits%20%26%20Produits%20Laitiers" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 12 -->
+                <article class="catalog-card" data-category="epicerie">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (5).jpeg" alt="Conserves et Boîtes de sauces" loading="lazy">
+                        <span class="catalog-card-badge">Conserves</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Boîtes de Conserves & Sauces Prêtes</h3>
+                        <p>Petits pois, maïs doux, sardines, thon en conserve et sauces tomates pour préparer vos plats rapidement.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Bo%C3%AEtes%20de%20Conserves" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 13 -->
+                <article class="catalog-card" data-category="epicerie">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (6).jpeg" alt="Épices et Bouillons" loading="lazy">
+                        <span class="catalog-card-badge">Saveurs</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Épices, Bouillons & Condiments Lokaux</h3>
+                        <p>Mélanges d'épices, poivre, bouillons de saveur et ingrédients traditionnels pour assaisonner vos repas.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20%C3%89pices%20%26%20Bouillons" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 14 -->
+                <article class="catalog-card" data-category="epicerie">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (7).jpeg" alt="Pâtes et Riz parfumés" loading="lazy">
+                        <span class="catalog-card-badge">Féculents</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Pâtes Alimentaires & Riz Parfumés</h3>
+                        <p>Spaghetti, macaronis, vermicelles et riz blanc parfumé de qualité supérieure en différents formats.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20P%C3%A2tes%20%26%20Riz" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 15 -->
+                <article class="catalog-card" data-category="biscuits">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (8).jpeg" alt="Chips et Snacks salés" loading="lazy">
+                        <span class="catalog-card-badge">Aapéritif</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Chips Croustillantes & Snacks Salés</h3>
+                        <p>Chips aperitif, cacahuètes grillees et petits gâteaux salés pour agrémenter vos moments en famille.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Chips%20%26%20Snacks%20Sal%C3%A9s" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produit 16 -->
+                <article class="catalog-card" data-category="boissons">
+                    <div class="catalog-card-img">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (9).jpeg" alt="Eau Minérale et Pack de boissons" loading="lazy">
+                        <span class="catalog-card-badge">Hydratation</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Eau Minérale & Pack Rafraîchissant</h3>
+                        <p>Bouteilles d'eau minérale pure, packs familiaux et boissons gazeuses conservées au frais.</p>
+                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Eau%20Min%C3%A9rale%20%26%20Boissons" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Message Aucun Résultat -->
+            <div id="noResults" class="no-results" style="display: none;">
+                <i class="fas fa-box-open" aria-hidden="true"></i>
+                <h3>Aucun produit trouvé</h3>
+                <p>Essayez un autre mot-clé ou réinitialisez le filtre de recherche.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bouton WhatsApp Flottant -->
+    <a href="https://wa.me/22370259494" class="whatsapp" title="Discuter sur WhatsApp" target="_blank" rel="noopener noreferrer" aria-label="Contacter SIGUI DA SAGO sur WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <footer>
+        <div class="footer-wrapper">
+            <div class="footer-section footer-brand">
+                <a class="footer-logo" href="index.html">
+                    <img src="logo-sigui-da-sago.webp" alt="Logo SIGUI DA SAGO">
+                </a>
+                <p>Votre magasin de proximité à Niamana, engagé pour un accueil professionnel, des produits frais et des prix transparents.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/22370259494" title="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/siguidasago" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@siguida.sago" title="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/share/1Fdkqa3NNz/?mibextid=wwXIfr" title="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://snapchat.com/t/otdLLKNi" title="Snapchat" target="_blank" rel="noopener noreferrer"><i class="fab fa-snapchat"></i></a>
+                    <a href="tel:+22370259494" title="Appeler"><i class="fas fa-phone"></i></a>
+                    <a href="mailto:siguidasago@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html#accueil">Accueil</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#produits">Produits populaires</a></li>
+                    <li><a href="catalogue.html">Catalogue complet</a></li>
+                    <li><a href="index.html#livraison">Livraison à domicile</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-contact">
+                <h4>Contact & Accès</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Niamana, derrière Grabal, Bamako</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+22370259494" style="color:inherit;">+223 70 25 94 94</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:siguidasago@gmail.com" style="color:inherit;">siguidasago@gmail.com</a></p>
+                <div class="footer-hours">
+                    <span>Horaires d'ouverture :</span>
+                    <p>Lun - Sam : 08h00 - 22h00<br>Dimanche : 09h00 - 19h00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; <span id="year">2026</span> SIGUI DA SAGO. Tous droits réservés.</p>
+            <p class="footer-credit"><a href="confidentialite.html">Politique de confidentialité</a></p>
+        </div>
+    </footer>
+
+    <script src="site.js"></script>
+</body>
+</html>

@@ -1,19 +1,19 @@
 /* ===============================
-   VARIABLES PROFESSIONNELLES
+   VARIABLES — THÈME ÉPICERIE
 ================================= */
 :root{
-    --primary:#165DFF;
-    --primary-dark:#0F46C5;
-    --secondary:#F5F7FA;
-    --accent:#10b981;
+    --primary:#176b45;
+    --primary-dark:#0e4a30;
+    --secondary:#f4f0e8;
+    --accent:#e6a422;
     --white:#ffffff;
-    --dark:#1a1a1a;
-    --gray:#666666;
-    --light-gray:#f8f9fb;
-    --shadow:0 4px 20px rgba(0,0,0,.08);
-    --shadow-lg:0 12px 40px rgba(0,0,0,.12);
-    --shadow-large:0 20px 60px rgba(0,0,0,.15);
-    --radius:16px;
+    --dark:#153228;
+    --gray:#617168;
+    --light-gray:#faf8f3;
+    --shadow:0 10px 30px rgba(21,50,40,.08);
+    --shadow-lg:0 18px 45px rgba(21,50,40,.14);
+    --shadow-large:0 24px 60px rgba(21,50,40,.18);
+    --radius:20px;
     --transition:.35s cubic-bezier(.4, 0, .2, 1);
     --max-width:1280px;
 }
@@ -1414,200 +1414,7 @@ footer{
     gap:0;
     animation:slideDown .3s ease;
 }
-.footer-links a{
-    color:rgba(255,255,255,.75);
-    transition:var(--transition);
-    display:inline-block;
-}
 
-.footer-links a:hover{
-    color:var(--primary);
-}
-
-.footer-contact p{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:14px;
-}
-
-.footer-contact p i,
-.footer-links li i{
-    width:24px;
-    text-align:center;
-    color:var(--primary);
-}
-
-.footer-hours{
-    margin-top:20px;
-    padding-top:18px;
-    border-top:1px solid rgba(255,255,255,.12);
-}
-
-.footer-hours span{
-    display:inline-block;
-    margin-bottom:10px;
-    font-weight:700;
-    color:#d3d9f1;
-}
-
-.footer-hours p{
-    margin:0;
-    line-height:1.8;
-}
-
-.footer-newsletter .newsletter-form{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:16px;
-}
-
-.footer-newsletter input{
-    flex:1 1 180px;
-    min-width:0;
-    padding:14px 18px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.08);
-    color:white;
-    outline:none;
-}
-
-.footer-newsletter input::placeholder{
-    color:rgba(255,255,255,.55);
-}
-
-.footer-newsletter button{
-    padding:14px 22px;
-    border-radius:999px;
-}
-
-.footer-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:20px;
-}
-
-.footer-bottom{
-    border-top:1px solid rgba(255,255,255,.1);
-    padding-top:28px;
-    text-align:center;
-    max-width:var(--max-width);
-    margin:0 auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.footer-copy,
-.footer-credit{
-    color:rgba(255,255,255,.6);
-    font-size:.85rem;
-    font-weight:500;
-    margin:0;
-}
-
-.footer-credit{
-    margin-top:0;
-}
-
-@media(max-width:900px){
-    .footer-bottom{
-        flex-direction:column;
-        text-align:center;
-    }
-}
-
-
-/* ===============================
-   WHATSAPP BUTTON
-================================= */
-.whatsapp{
-    position:fixed;
-    right:25px;
-    bottom:25px;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:#25D366;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    font-size:28px;
-    box-shadow:var(--shadow-lg);
-    z-index:1000;
-    transition:var(--transition);
-    border:none;
-}
-
-.whatsapp:hover{
-    transform:scale(1.15) rotate(10deg);
-    box-shadow:0 12px 35px rgba(37,211,102,.3);
-}
-
-/* ===============================
-   UTILITIES
-================================= */
-.hidden{
-    opacity:0;
-    transform:translateY(30px);
-    transition:var(--transition);
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.top-btn{
-    position:fixed;
-    right:30px;
-    bottom:100px;
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
-    background:var(--primary);
-    color:white;
-    cursor:pointer;
-    font-size:18px;
-    opacity:0;
-    pointer-events:none;
-    transition:var(--transition);
-    z-index:999;
-    box-shadow:var(--shadow-lg);
-}
-
-.top-btn.visible{
-    opacity:1;
-    pointer-events:auto;
-}
-
-.top-btn:hover{
-    transform:translateY(-5px);
-    box-shadow:var(--shadow-large);
-}
-
-/* ===============================
-   MOBILE MENU
-================================= */
-.nav-links.active{
-    display:flex;
-    flex-direction:column;
-    position:absolute;
-    top:80px;
-    left:0;
-    width:100%;
-    background:white;
-    padding:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-    gap:0;
-    animation:slideDown .3s ease;
-}
 
 /* ===============================
    RESPONSIVE
@@ -1801,62 +1608,7 @@ footer{
 img.loaded{
     animation:fadeInUp .6s ease;
 }
-        gap:30px;
-    }
 
-    .footer-section{
-        text-align:center;
-    }
-
-    .social-links{
-        justify-content:center;
-    }
-
-    .map iframe{
-        height:300px;
-    }
-}
-
-@media (max-width:600px){
-    section{
-        padding:60px 5%;
-    }
-
-    .hero h1{
-        font-size:1.8rem;
-    }
-
-    .section-head h2{
-        font-size:1.6rem;
-    }
-
-    .card,
-    .stat-card,
-    .product,
-    .testimonial-card,
-    .hour-card,
-    .contact-box{
-        padding:28px 20px;
-    }
-
-    .hero-stats strong{
-        font-size:2rem;
-    }
-
-    .stat-card strong{
-        font-size:2.5rem;
-    }
-
-    .buttons{
-        gap:10px;
-    }
-
-    .btn{
-        padding:10px 20px;
-        font-size:.9rem;
-    }
-
-}
 .social-links a {
     width: 42px;
     height: 42px;
@@ -2197,4 +1949,232 @@ section{ padding:110px 6%; }
     }
 
     .footer-logo{ margin-left:auto; margin-right:auto; }
+}
+
+/* ===============================
+   PAGE CATALOGUE PRODUITS
+================================= */
+.catalog-page{ background:#fdfbf7; }
+
+.catalog-hero{
+    margin-top:76px;
+    padding:70px 6% 40px;
+    background:radial-gradient(circle at 80% 20%, rgba(230,164,34,.14), transparent 35%), linear-gradient(135deg, #f8f4ea 0%, #fffdf9 100%);
+    text-align:center;
+}
+
+.catalog-hero h1{
+    font-size:3.2rem;
+    color:var(--dark);
+    margin-bottom:12px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.catalog-hero p{
+    color:var(--gray);
+    max-width:650px;
+    margin:0 auto 30px;
+    font-size:1.05rem;
+}
+
+.search-container{
+    max-width:550px;
+    margin:0 auto 30px;
+    position:relative;
+}
+
+.search-container input{
+    width:100%;
+    padding:16px 20px 16px 50px;
+    border-radius:50px;
+    border:2px solid rgba(23,107,69,.15);
+    background:white;
+    font-size:1rem;
+    color:var(--dark);
+    outline:none;
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+}
+
+.search-container input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(23,107,69,.12);
+}
+
+.search-container i{
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--primary);
+    font-size:1.1rem;
+}
+
+.category-filters{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    max-width:950px;
+    margin:0 auto;
+}
+
+.filter-btn{
+    padding:10px 22px;
+    border-radius:50px;
+    border:1px solid rgba(23,107,69,.15);
+    background:white;
+    color:var(--dark);
+    font-weight:600;
+    font-size:.9rem;
+    cursor:pointer;
+    transition:var(--transition);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:var(--primary);
+    color:white;
+    border-color:var(--primary);
+    box-shadow:0 6px 16px rgba(23,107,69,.25);
+}
+
+.catalog-section{
+    padding:60px 6% 100px;
+}
+
+.catalog-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));
+    gap:30px;
+}
+
+.catalog-card{
+    background:white;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(23,107,69,.08);
+    transition:var(--transition);
+    display:flex;
+    flex-direction:column;
+}
+
+.catalog-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
+}
+
+.catalog-card-img{
+    position:relative;
+    height:230px;
+    overflow:hidden;
+    background:#f4f0e8;
+}
+
+.catalog-card-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:var(--transition);
+}
+
+.catalog-card:hover .catalog-card-img img{
+    transform:scale(1.06);
+}
+
+.catalog-card-badge{
+    position:absolute;
+    top:14px;
+    left:14px;
+    background:rgba(21,50,40,.85);
+    backdrop-filter:blur(6px);
+    color:white;
+    font-size:.72rem;
+    font-weight:700;
+    padding:5px 12px;
+    border-radius:50px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+}
+
+.catalog-card-body{
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    flex-grow:1;
+}
+
+.catalog-card-body h3{
+    font-size:1.15rem;
+    color:var(--dark);
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.catalog-card-body p{
+    color:var(--gray);
+    font-size:.9rem;
+    line-height:1.6;
+    margin-bottom:20px;
+    flex-grow:1;
+}
+
+.catalog-card-btn{
+    width:100%;
+    padding:12px 18px;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    font-weight:600;
+    font-size:.92rem;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    text-decoration:none;
+    transition:var(--transition);
+    border:none;
+    cursor:pointer;
+}
+
+.catalog-card-btn:hover{
+    background:var(--primary-dark);
+    box-shadow:0 6px 18px rgba(23,107,69,.25);
+}
+
+.no-results{
+    grid-column:1 / -1;
+    text-align:center;
+    padding:60px 20px;
+    background:white;
+    border-radius:var(--radius);
+    border:1px dashed rgba(23,107,69,.2);
+}
+
+.no-results i{
+    font-size:3rem;
+    color:var(--gray);
+    margin-bottom:16px;
+}
+
+.no-results h3{
+    font-size:1.3rem;
+    color:var(--dark);
+    margin-bottom:8px;
+}
+
+.no-results p{
+    color:var(--gray);
+}
+
+@media (max-width:768px){
+    .catalog-hero{ margin-top:70px; padding:50px 5% 30px; }
+    .catalog-hero h1{ font-size:2.2rem; }
+    .catalog-grid{ grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:20px; }
+    .filter-btn{ padding:8px 16px; font-size:.82rem; }
 }

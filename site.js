@@ -115,7 +115,7 @@ if (newsletterForm) {
 // INTERSECTION OBSERVER - ANIMATION AU SCROLL
 // ============================================
 
-const hiddenElements = document.querySelectorAll(".card, .product, .stat-card, .testimonial-card, .hour-card, .contact-box, .section-head");
+const hiddenElements = document.querySelectorAll(".card, .product, .stat-card, .testimonial-card, .hour-card, .contact-box, .section-head, .catalog-card");
 
 const observerOptions = {
     threshold: 0.1,
@@ -140,25 +140,27 @@ hiddenElements.forEach(el => {
 // BOUTON RETOUR EN HAUT
 // ============================================
 
-const topButton = document.createElement("button");
-topButton.innerHTML = '<i class="fas fa-chevron-up"></i>';
-topButton.className = "top-btn";
-document.body.appendChild(topButton);
+if (!document.querySelector(".top-btn")) {
+    const topButton = document.createElement("button");
+    topButton.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    topButton.className = "top-btn";
+    document.body.appendChild(topButton);
 
-window.addEventListener("scroll", () => {
-    if(window.scrollY > 400) {
-        topButton.classList.add("visible");
-    } else {
-        topButton.classList.remove("visible");
-    }
-});
-
-topButton.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    window.addEventListener("scroll", () => {
+        if(window.scrollY > 400) {
+            topButton.classList.add("visible");
+        } else {
+            topButton.classList.remove("visible");
+        }
     });
-});
+
+    topButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
 // ============================================
 // COMPTEUR ANIMÉ
@@ -205,43 +207,6 @@ if(year) {
 }
 
 // ============================================
-// PARALLAX EFFECT
-// ============================================
-
-window.addEventListener("scroll", () => {
-    const scrolled = window.pageYOffset;
-    const heroImage = document.querySelector(".hero-image img");
-    
-    if(heroImage) {
-        heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
-});
-
-// ============================================
-// ACTIVE NAV LINK
-// ============================================
-
-window.addEventListener("scroll", () => {
-    let current = "";
-    
-    document.querySelectorAll("section[id]").forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if(scrollY >= sectionTop - 200) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-        link.classList.remove("active");
-        if(link.getAttribute("href").slice(1) === current) {
-            link.classList.add("active");
-        }
-    });
-});
-
-// ============================================
 // LAZY LOADING IMAGES
 // ============================================
 
@@ -258,4 +223,58 @@ if('IntersectionObserver' in window) {
     });
 
     document.querySelectorAll('img').forEach(img => imageObserver.observe(img));
+}
+
+// ============================================
+// LOGIQUE DU CATALOGUE (RECHERCHE & FILTRES)
+// ============================================
+
+const searchInput = document.querySelector("#catalogSearch");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const catalogCards = document.querySelectorAll(".catalog-card");
+const noResultsMsg = document.querySelector("#noResults");
+
+if (catalogCards.length > 0) {
+    let currentCategory = "all";
+    let searchQuery = "";
+
+    function filterProducts() {
+        let visibleCount = 0;
+
+        catalogCards.forEach(card => {
+            const category = card.dataset.category || "";
+            const title = card.querySelector("h3") ? card.querySelector("h3").textContent.toLowerCase() : "";
+            const desc = card.querySelector("p") ? card.querySelector("p").textContent.toLowerCase() : "";
+
+            const matchesCategory = (currentCategory === "all" || category === currentCategory);
+            const matchesSearch = (searchQuery === "" || title.includes(searchQuery) || desc.includes(searchQuery));
+
+            if (matchesCategory && matchesSearch) {
+                card.style.display = "flex";
+                visibleCount++;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        if (noResultsMsg) {
+            noResultsMsg.style.display = visibleCount === 0 ? "block" : "none";
+        }
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            filterProducts();
+        });
+    }
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            filterButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentCategory = btn.dataset.filter || "all";
+            filterProducts();
+        });
+    });
 }
