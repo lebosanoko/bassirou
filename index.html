@@ -81,7 +81,23 @@
     }
     </script>
 </head>
-<body>
+<body class="has-top-bar">
+<!-- Bandeau d'annonces supérieur -->
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <span class="store-status-badge open">
+            <i class="fas fa-circle" aria-hidden="true"></i> Vérification des horaires…
+        </span>
+        <span class="top-bar-promo">
+            <i class="fas fa-truck-fast" aria-hidden="true"></i> Livraison express à Niamana & alentours
+        </span>
+        <div class="top-bar-contact">
+            <a href="tel:+22370259494"><i class="fas fa-phone"></i> +223 70 25 94 94</a>
+            <a href="https://wa.me/22370259494" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp Direct</a>
+        </div>
+    </div>
+</div>
+
 <header>
     <nav class="navbar">
         <a class="brand" href="#accueil" aria-label="SIGUI DA SAGO - Accueil">
@@ -96,8 +112,15 @@
             <li><a href="#livraison">Livraison</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#livraison" class="btn header-order">Commander</a>
-        <div class="menu-btn"><i class="fas fa-bars"></i></div>
+        <div class="nav-actions">
+            <button class="cart-trigger-btn" id="cartOpenBtn" aria-label="Voir le panier">
+                <i class="fas fa-shopping-basket"></i>
+                <span>Panier</span>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+            <a href="#livraison" class="btn header-order">Commander</a>
+        </div>
+        <button type="button" class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
     </nav>
 </header>
 
@@ -214,6 +237,47 @@
     <p class="terms-note"><i class="fas fa-circle-info" aria-hidden="true"></i> Pour toute question ou modification, contactez-nous directement sur WhatsApp avant la livraison.</p>
 </section>
 
+<!-- Section Modes de paiement locaux Mali -->
+<section class="payment-trust">
+    <div class="trust-container">
+        <div class="trust-header">
+            <span class="trust-eyebrow"><i class="fas fa-shield-halved" aria-hidden="true"></i> Paiement simple & sécurisé</span>
+            <h2>Réglez vos achats selon votre convenance</h2>
+            <p>Payez en toute sérénité à la réception de votre commande ou par Mobile Money malien instantané.</p>
+        </div>
+        <div class="payment-badges-grid">
+            <div class="payment-badge-card om">
+                <div class="badge-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                <div class="badge-content">
+                    <h4>Orange Money</h4>
+                    <span>Paiement rapide sur notre numéro</span>
+                </div>
+            </div>
+            <div class="payment-badge-card wave">
+                <div class="badge-icon"><i class="fas fa-water"></i></div>
+                <div class="badge-content">
+                    <h4>Wave Mali</h4>
+                    <span>Zéro frais sur votre transfert</span>
+                </div>
+            </div>
+            <div class="payment-badge-card moov">
+                <div class="badge-icon"><i class="fas fa-sim-card"></i></div>
+                <div class="badge-content">
+                    <h4>Moov Money</h4>
+                    <span>Règlement instantané sécurisé</span>
+                </div>
+            </div>
+            <div class="payment-badge-card cash">
+                <div class="badge-icon"><i class="fas fa-money-bill-wave"></i></div>
+                <div class="badge-content">
+                    <h4>Espèces à la livraison</h4>
+                    <span>Réglez directement au livreur</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="stats">
     <div class="stat-card">
         <strong class="counter" data-target="250">0</strong>
@@ -235,33 +299,104 @@
         <h2>Produits populaires</h2>
     </div>
     <div class="product-grid larger">
-        <article class="product">
-            <img src="image-produit-1.webp" alt="Friandises & Confiseries Kinder" loading="lazy" decoding="async">
-            <span class="product-label">À partager</span>
-            <h3>Friandises & Confiseries</h3>
-            <p>Kinder, Snickers, KitKat et bien d'autres marques appréciées des enfants et familles.</p>
-            <a href="#livraison">Ajouter à ma commande <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <!-- Produit 1 -->
+        <article class="product" data-id="pop-1" data-name="Friandises & Confiseries" data-price="2000" data-img="image-produit-1.webp" data-category="Friandises" data-badge="À partager">
+            <div class="product-media">
+                <img src="image-produit-1.webp" alt="Friandises & Confiseries Kinder" loading="lazy" decoding="async">
+                <span class="product-label">À partager</span>
+                <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
+            </div>
+            <div class="product-info">
+                <h3>Friandises & Confiseries</h3>
+                <p>Kinder, Snickers, KitKat et bien d'autres marques appréciées des enfants et familles.</p>
+                <div class="product-price-row">
+                    <div class="price-val">2 000 <small>FCFA</small></div>
+                </div>
+                <div class="product-actions-row">
+                    <button type="button" class="btn-add-cart" data-id="pop-1" data-name="Friandises & Confiseries" data-price="2000" data-img="image-produit-1.webp">
+                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                    </button>
+                    <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Friandises%20%26%20Confiseries%20(2%20000%20FCFA)" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
         </article>
-        <article class="product">
-            <img src="image-produit-2.webp" alt="Barres & Biscuits variés" loading="lazy" decoding="async">
-            <span class="product-label">Les incontournables</span>
-            <h3>Barres & Biscuits</h3>
-            <p>Duplo, Twix, Lion, Crunch... large assortiment pour tous les goûts.</p>
-            <a href="#livraison">Ajouter à ma commande <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+
+        <!-- Produit 2 -->
+        <article class="product" data-id="pop-2" data-name="Barres & Biscuits variés" data-price="1500" data-img="image-produit-2.webp" data-category="Biscuits" data-badge="Les incontournables">
+            <div class="product-media">
+                <img src="image-produit-2.webp" alt="Barres & Biscuits variés" loading="lazy" decoding="async">
+                <span class="product-label">Les incontournables</span>
+                <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
+            </div>
+            <div class="product-info">
+                <h3>Barres & Biscuits</h3>
+                <p>Duplo, Twix, Lion, Crunch... large assortiment pour tous les goûts.</p>
+                <div class="product-price-row">
+                    <div class="price-val">1 500 <small>FCFA</small></div>
+                </div>
+                <div class="product-actions-row">
+                    <button type="button" class="btn-add-cart" data-id="pop-2" data-name="Barres & Biscuits variés" data-price="1500" data-img="image-produit-2.webp">
+                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                    </button>
+                    <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Barres%20%26%20Biscuits%20(1%20500%20FCFA)" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
         </article>
-        <article class="product">
-            <img src="image-produit-3.webp" alt="Chocolats Premium Ghirardelli" loading="lazy" decoding="async">
-            <span class="product-label">Sélection premium</span>
-            <h3>Chocolats Premium</h3>
-            <p>Lindor, Godiva, Ghirardelli - Excellence et qualité pour les moments spéciaux.</p>
-            <a href="#livraison">Ajouter à ma commande <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+
+        <!-- Produit 3 -->
+        <article class="product" data-id="pop-3" data-name="Chocolats Premium" data-price="3500" data-img="image-produit-3.webp" data-category="Chocolats" data-badge="Sélection premium">
+            <div class="product-media">
+                <img src="image-produit-3.webp" alt="Chocolats Premium Ghirardelli" loading="lazy" decoding="async">
+                <span class="product-label">Sélection premium</span>
+                <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
+            </div>
+            <div class="product-info">
+                <h3>Chocolats Premium</h3>
+                <p>Lindor, Godiva, Ghirardelli - Excellence et qualité pour les moments spéciaux.</p>
+                <div class="product-price-row">
+                    <div class="price-val">3 500 <small>FCFA</small></div>
+                </div>
+                <div class="product-actions-row">
+                    <button type="button" class="btn-add-cart" data-id="pop-3" data-name="Chocolats Premium" data-price="3500" data-img="image-produit-3.webp">
+                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                    </button>
+                    <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Chocolats%20Premium%20(3%20500%20FCFA)" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
         </article>
-        <article class="product">
-            <img src="image-produit-4.webp" alt="Céréales & Petit-déjeuner Kellogg's" loading="lazy" decoding="async">
-            <span class="product-label">Pour le petit-déjeuner</span>
-            <h3>Céréales & Petit-déjeuner</h3>
-            <p>Corn Flakes, Rice Krispies et un grand choix de céréales pour bien démarrer la journée.</p>
-            <a href="#livraison">Ajouter à ma commande <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+
+        <!-- Produit 4 -->
+        <article class="product" data-id="pop-4" data-name="Céréales & Petit-déjeuner" data-price="3000" data-img="image-produit-4.webp" data-category="Petit-déjeuner" data-badge="Pour le petit-déjeuner">
+            <div class="product-media">
+                <img src="image-produit-4.webp" alt="Céréales & Petit-déjeuner Kellogg's" loading="lazy" decoding="async">
+                <span class="product-label">Pour le petit-déjeuner</span>
+                <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
+            </div>
+            <div class="product-info">
+                <h3>Céréales & Petit-déjeuner</h3>
+                <p>Corn Flakes, Rice Krispies et un grand choix de céréales pour bien démarrer la journée.</p>
+                <div class="product-price-row">
+                    <div class="price-val">3 000 <small>FCFA</small></div>
+                </div>
+                <div class="product-actions-row">
+                    <button type="button" class="btn-add-cart" data-id="pop-4" data-name="Céréales & Petit-déjeuner" data-price="3000" data-img="image-produit-4.webp">
+                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                    </button>
+                    <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20C%C3%A9r%C3%A9ales%20%26%20Petit-d%C3%A9jeuner%20(3%20000%20FCFA)" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
         </article>
     </div>
 </section>
@@ -317,21 +452,48 @@
 
 <section class="testimonials">
     <div class="section-head">
-        <span>Avis clients</span>
+        <span>Avis de nos clients</span>
         <h2>Ce que nos clients apprécient</h2>
     </div>
     <div class="testimonial-grid">
         <div class="testimonial-card">
-            <p>« Excellent service et accueil très professionnel. Je recommande SIGUI DA SAGO. »</p>
-            <span>— Aminata</span>
+            <div class="testimonial-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>« Excellent service et accueil très professionnel. Je commande mes packs d'eau et friandises directement sur WhatsApp, livraison toujours à l'heure à Niamana ! »</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">A</div>
+                <div class="author-meta">
+                    <strong>Aminata Diarra</strong>
+                    <span><i class="fas fa-circle-check"></i> Cliente fidèle • Niamana</span>
+                </div>
+            </div>
         </div>
         <div class="testimonial-card">
-            <p>« Toujours des produits frais à des prix intéressants. L’équipe est très disponible. »</p>
-            <span>— Moussa</span>
+            <div class="testimonial-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>« Toujours des produits frais et authentiques à des prix très abordables. L’équipe est toujours disponible et le paiement Wave ou Orange Money facilite la vie. »</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">M</div>
+                <div class="author-meta">
+                    <strong>Moussa Traoré</strong>
+                    <span><i class="fas fa-circle-check"></i> Habitant derrière Grabal</span>
+                </div>
+            </div>
         </div>
         <div class="testimonial-card">
-            <p>« Idéal pour faire ses courses près de chez soi. Service rapide et fiable. »</p>
-            <span>— Aïssata</span>
+            <div class="testimonial-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p>« Idéal pour faire ses courses de proximité sans se déplacer au grand marché. La commande par panier WhatsApp est ultra pratique et rapide. Bravo ! »</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">A</div>
+                <div class="author-meta">
+                    <strong>Aïssata Coulibaly</strong>
+                    <span><i class="fas fa-circle-check"></i> Cliente vérifiée</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -583,4 +745,125 @@
     <i class="fab fa-whatsapp" aria-hidden="true"></i>
 </a>
 
+<!-- TIROIR DE PANIER (DRAWER) -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Mon Panier">
+    <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+            <i class="fas fa-shopping-basket"></i>
+            <h3>Mon Panier</h3>
+            <span class="cart-drawer-count" id="drawerCartCount">(0 article)</span>
+        </div>
+        <button class="cart-drawer-close" id="cartCloseBtn" aria-label="Fermer le panier">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="cart-drawer-body" id="cartItemsList">
+        <!-- Rempli dynamiquement par JS -->
+    </div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+        <div class="cart-summary">
+            <div class="summary-line">
+                <span>Sous-total</span>
+                <strong id="cartSubtotal">0 FCFA</strong>
+            </div>
+            <div class="summary-line">
+                <span>Livraison</span>
+                <span class="delivery-badge-calc">Confirmé sur WhatsApp</span>
+            </div>
+            <div class="summary-line total-line">
+                <span>Total estimé</span>
+                <strong id="cartTotal">0 FCFA</strong>
+            </div>
+        </div>
+        <div class="cart-checkout-form">
+            <div class="checkout-input-group">
+                <input type="text" id="cartCustomerName" placeholder="Votre nom complet *" required>
+            </div>
+            <div class="checkout-input-group">
+                <input type="tel" id="cartCustomerPhone" placeholder="Téléphone WhatsApp *" required>
+            </div>
+            <div class="checkout-input-group">
+                <input type="text" id="cartCustomerAddress" placeholder="Lieu ou repère à Niamana *" required>
+            </div>
+            <div class="checkout-input-group">
+                <input type="text" id="cartCustomerNote" placeholder="Note facultative (ex. monnaie sur 5000...)">
+            </div>
+            <button type="button" class="btn btn-whatsapp-checkout" id="cartCheckoutBtn">
+                <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+            </button>
+            <button type="button" class="btn-clear-cart" id="clearCartBtn">
+                <i class="fas fa-trash-alt"></i> Vider le panier
+            </button>
+        </div>
+    </div>
+</aside>
+
+<!-- MODAL APERÇU RAPIDE (QUICK VIEW) -->
+<div class="modal-overlay" id="quickViewOverlay"></div>
+<div class="product-modal" id="quickViewModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Fermer l'aperçu"><i class="fas fa-times"></i></button>
+    <div class="modal-grid">
+        <div class="modal-img-col">
+            <img id="modalProductImg" src="logo-mark.webp" alt="">
+            <span class="modal-badge" id="modalProductBadge">En stock</span>
+        </div>
+        <div class="modal-info-col">
+            <span class="modal-category" id="modalProductCategory">Épicerie</span>
+            <h3 id="modalProductTitle">Titre du produit</h3>
+            <div class="modal-price" id="modalProductPrice">2 000 FCFA</div>
+            <p class="modal-desc" id="modalProductDesc">Description détaillée du produit.</p>
+            <div class="modal-stock-status"><i class="fas fa-check-circle"></i> Disponible au magasin de Niamana</div>
+            <div class="modal-qty-row">
+                <span>Quantité :</span>
+                <div class="qty-selector">
+                    <button type="button" id="modalQtyMinus" aria-label="Moins">-</button>
+                    <input type="number" id="modalQtyInput" value="1" min="1" max="50" aria-label="Quantité">
+                    <button type="button" id="modalQtyPlus" aria-label="Plus">+</button>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-modal-add" id="modalAddToCartBtn">
+                    <i class="fas fa-cart-plus"></i> Ajouter au panier
+                </button>
+                <a id="modalDirectWaBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-modal-wa">
+                    <i class="fab fa-whatsapp"></i> WhatsApp direct
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BARRE DE NAVIGATION MOBILE AU POUCE -->
+<nav class="mobile-bottom-bar" aria-label="Navigation mobile">
+    <a href="#accueil" class="bottom-nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Accueil</span>
+    </a>
+    <a href="catalogue.html" class="bottom-nav-item">
+        <i class="fas fa-store"></i>
+        <span>Catalogue</span>
+    </a>
+    <button type="button" class="bottom-nav-item cart-bottom-btn" id="mobileCartBtn" aria-label="Panier">
+        <div class="bottom-cart-icon">
+            <i class="fas fa-shopping-basket"></i>
+            <span class="bottom-cart-badge" id="mobileCartBadge">0</span>
+        </div>
+        <span>Panier</span>
+    </button>
+    <a href="https://wa.me/22370259494" target="_blank" rel="noopener noreferrer" class="bottom-nav-item wa-item" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+    </a>
+    <a href="tel:+22370259494" class="bottom-nav-item" aria-label="Téléphone">
+        <i class="fas fa-phone"></i>
+        <span>Appel</span>
+    </a>
+</nav>
+
+<!-- CONTENEUR DES TOASTS -->
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
 <script src="site.js" defer></script>
+</body>
+</html>

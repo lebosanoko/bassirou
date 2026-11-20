@@ -26,7 +26,23 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body class="catalog-page">
+<body class="catalog-page has-top-bar">
+    <!-- Bandeau d'annonces supérieur -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <span class="store-status-badge open">
+                <i class="fas fa-circle" aria-hidden="true"></i> Vérification des horaires…
+            </span>
+            <span class="top-bar-promo">
+                <i class="fas fa-truck-fast" aria-hidden="true"></i> Livraison express à Niamana & alentours
+            </span>
+            <div class="top-bar-contact">
+                <a href="tel:+22370259494"><i class="fas fa-phone"></i> +223 70 25 94 94</a>
+                <a href="https://wa.me/22370259494" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp Direct</a>
+            </div>
+        </div>
+    </div>
+
     <header>
         <nav class="navbar">
             <a class="brand" href="index.html" aria-label="SIGUI DA SAGO - Accueil">
@@ -41,8 +57,15 @@
                 <li><a href="index.html#livraison">Livraison</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <a href="index.html#livraison" class="btn header-order">Commander</a>
-            <div class="menu-btn"><i class="fas fa-bars"></i></div>
+            <div class="nav-actions">
+                <button class="cart-trigger-btn" id="cartOpenBtn" aria-label="Voir le panier">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>Panier</span>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <a href="index.html#livraison" class="btn header-order">Commander</a>
+            </div>
+            <button type="button" class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
         </nav>
     </header>
 
@@ -50,7 +73,7 @@
         <section class="catalog-hero">
             <span class="eyebrow"><i class="fas fa-store" aria-hidden="true"></i> Magasin SIGUI DA SAGO à Niamana</span>
             <h1>Notre Catalogue Produits</h1>
-            <p>Parcourez notre sélection complète d’articles disponibles en magasin. Cliquez sur un produit pour le commander directement via WhatsApp !</p>
+            <p>Parcourez notre sélection complète d’articles disponibles en magasin. Ajoutez vos produits au panier et validez votre commande en un clic sur WhatsApp !</p>
 
             <div class="search-container">
                 <i class="fas fa-search" aria-hidden="true"></i>
@@ -70,247 +93,550 @@
 
         <section class="catalog-section">
             <div class="catalog-grid" id="catalogGrid">
-                
-                <!-- Produit 1 -->
-                <article class="catalog-card" data-category="friandises">
-                    <div class="catalog-card-img">
-                        <img src="image-produit-1.webp" alt="Friandises & Confiseries Kinder, Snickers, KitKat" loading="lazy">
+                <!-- Produit cat-1 -->
+                <article class="catalog-card" data-id="cat-1" data-name="Friandises & Confiseries" data-price="2000" data-category="friandises" data-img="image-produit-1.webp" data-badge="À partager">
+                    <div class="product-media">
+                        <img src="image-produit-1.webp" alt="Friandises & Confiseries" loading="lazy">
                         <span class="catalog-card-badge">À partager</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Friandises & Confiseries</h3>
                         <p>Sélection gourmande : Kinder Maxi, Snickers, KitKat, Bueno et bonbons appréciés de toute la famille.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Friandises%20%26%20Confiseries" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">2 000 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-1" data-name="Friandises & Confiseries" data-price="2000" data-img="image-produit-1.webp">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Friandises%20%26%20Confiseries%20%282%20000%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 2 -->
-                <article class="catalog-card" data-category="biscuits">
-                    <div class="catalog-card-img">
-                        <img src="image-produit-2.webp" alt="Assortiment Barres & Biscuits" loading="lazy">
+                <!-- Produit cat-2 -->
+                <article class="catalog-card" data-id="cat-2" data-name="Barres Chocolatées & Biscuits" data-price="1500" data-category="biscuits" data-img="image-produit-2.webp" data-badge="Incontournable">
+                    <div class="product-media">
+                        <img src="image-produit-2.webp" alt="Barres Chocolatées & Biscuits" loading="lazy">
                         <span class="catalog-card-badge">Incontournable</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Barres Chocolatées & Biscuits</h3>
                         <p>Large choix de barres énergétiques et biscuits : Duplo, Twix, Lion, Crunch, Nesquik et Hanuta.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Barres%20Chocolat%C3%A9es%20%26%20Biscuits" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">1 500 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-2" data-name="Barres Chocolatées & Biscuits" data-price="1500" data-img="image-produit-2.webp">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Barres%20Chocolat%C3%A9es%20%26%20Biscuits%20%281%20500%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 3 -->
-                <article class="catalog-card" data-category="friandises">
-                    <div class="catalog-card-img">
-                        <img src="image-produit-3.webp" alt="Chocolats Premium Lindt & Ghirardelli" loading="lazy">
+                <!-- Produit cat-3 -->
+                <article class="catalog-card" data-id="cat-3" data-name="Chocolats Noir & Pralinés Premium" data-price="3500" data-category="friandises" data-img="image-produit-3.webp" data-badge="Sélection Premium">
+                    <div class="product-media">
+                        <img src="image-produit-3.webp" alt="Chocolats Noir & Pralinés Premium" loading="lazy">
                         <span class="catalog-card-badge">Sélection Premium</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Chocolats Noir & Pralinés Premium</h3>
                         <p>Tablettes de chocolat fin 70% à 86% cacao : Lindt Excellence, Ghirardelli, Valrhona et Godiva.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Chocolats%20Noir%20%26%20Pralin%C3%A9s%20Premium" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">3 500 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-3" data-name="Chocolats Noir & Pralinés Premium" data-price="3500" data-img="image-produit-3.webp">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Chocolats%20Noir%20%26%20Pralin%C3%A9s%20Premium%20%283%20500%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 4 -->
-                <article class="catalog-card" data-category="petit-dejeuner">
-                    <div class="catalog-card-img">
-                        <img src="image-produit-4.webp" alt="Céréales Kellogg's Corn Flakes et Rice Krispies" loading="lazy">
+                <!-- Produit cat-4 -->
+                <article class="catalog-card" data-id="cat-4" data-name="Céréales Kellogg's & Petit-Déjeuner" data-price="3000" data-category="petit-dejeuner" data-img="image-produit-4.webp" data-badge="Petit-Déjeuner">
+                    <div class="product-media">
+                        <img src="image-produit-4.webp" alt="Céréales Kellogg's & Petit-Déjeuner" loading="lazy">
                         <span class="catalog-card-badge">Petit-Déjeuner</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Céréales Kellogg's & Petit-Déjeuner</h3>
                         <p>Gamme complète de céréales du matin : Corn Flakes, Rice Krispies, Frosted Flakes et Raisin Bran.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20C%C3%A9r%C3%A9ales%20Kellogg%27s" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">3 000 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-4" data-name="Céréales Kellogg's & Petit-Déjeuner" data-price="3000" data-img="image-produit-4.webp">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20C%C3%A9r%C3%A9ales%20Kellogg%27s%20%26%20Petit-D%C3%A9jeuner%20%283%20000%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 5 -->
-                <article class="catalog-card" data-category="epicerie">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (1).jpeg" alt="Pack Épicerie Générale" loading="lazy">
+                <!-- Produit cat-5 -->
+                <article class="catalog-card" data-id="cat-5" data-name="Pack Épicerie & Ingrédients Quotidien" data-price="4500" data-category="epicerie" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (1).jpeg" data-badge="Essentiel">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (1).jpeg" alt="Pack Épicerie & Ingrédients Quotidien" loading="lazy">
                         <span class="catalog-card-badge">Essentiel</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Pack Épicerie & Ingrédients Quotidien</h3>
                         <p>Produits de première nécessité pour la cuisine : riz, sucre, farine et produits locaux sélection de Niamana.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Pack%20%C3%89picerie%20%26%20Ingr%C3%A9dients" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">4 500 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-5" data-name="Pack Épicerie & Ingrédients Quotidien" data-price="4500" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (1).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Pack%20%C3%89picerie%20%26%20Ingr%C3%A9dients%20Quotidien%20%284%20500%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 6 -->
-                <article class="catalog-card" data-category="epicerie">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (2).jpeg" alt="Huiles et Condiments de cuisine" loading="lazy">
+                <!-- Produit cat-6 -->
+                <article class="catalog-card" data-id="cat-6" data-name="Huiles Végétales & Assaisonnements" data-price="2500" data-category="epicerie" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (2).jpeg" data-badge="Cuisine">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (2).jpeg" alt="Huiles Végétales & Assaisonnements" loading="lazy">
                         <span class="catalog-card-badge">Cuisine</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Huiles Végétales & Assaisonnements</h3>
                         <p>Huiles de cuisson de qualité, condiments, sauces et concentrés de tomate pour vos repas.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Huiles%20V%C3%A9g%C3%A9tales%20%26%20Assaisonnements" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">2 500 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-6" data-name="Huiles Végétales & Assaisonnements" data-price="2500" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (2).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Huiles%20V%C3%A9g%C3%A9tales%20%26%20Assaisonnements%20%282%20500%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 7 -->
-                <article class="catalog-card" data-category="entretien">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (3).jpeg" alt="Produits de ménage et entretien" loading="lazy">
+                <!-- Produit cat-7 -->
+                <article class="catalog-card" data-id="cat-7" data-name="Produits d’Entretien & Nettoyage" data-price="2000" data-category="entretien" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (3).jpeg" data-badge="Ménage">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (3).jpeg" alt="Produits d’Entretien & Nettoyage" loading="lazy">
                         <span class="catalog-card-badge">Ménage</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Produits d’Entretien & Nettoyage</h3>
                         <p>Lessives, savons, liquides vaisselle et nettoyants multi-usages pour la propreté de la maison.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Produits%20d%27Entretien" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">2 000 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-7" data-name="Produits d’Entretien & Nettoyage" data-price="2000" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (3).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Produits%20d%E2%80%99Entretien%20%26%20Nettoyage%20%282%20000%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 8 -->
-                <article class="catalog-card" data-category="boissons">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (5).jpeg" alt="Jus et Boissons rafraîchissantes" loading="lazy">
+                <!-- Produit cat-8 -->
+                <article class="catalog-card" data-id="cat-8" data-name="Jus de Fruits & Boissons Fraîches" data-price="1200" data-category="boissons" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (5).jpeg" data-badge="Rafraîchissant">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (5).jpeg" alt="Jus de Fruits & Boissons Fraîches" loading="lazy">
                         <span class="catalog-card-badge">Rafraîchissant</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Jus de Fruits & Boissons Fraîches</h3>
                         <p>Sélection de jus naturels, sodas et boissons fraîches indispensables pour vous rafraîchir.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Jus%20de%20Fruits%20%26%20Boissons" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">1 200 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-8" data-name="Jus de Fruits & Boissons Fraîches" data-price="1200" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (5).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Jus%20de%20Fruits%20%26%20Boissons%20Fra%C3%AEches%20%281%20200%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 9 -->
-                <article class="catalog-card" data-category="epicerie">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (6).jpeg" alt="Produits frais et épicerie fine" loading="lazy">
+                <!-- Produit cat-9 -->
+                <article class="catalog-card" data-id="cat-9" data-name="Épicerie Fine & Sélection Magasin" data-price="3800" data-category="epicerie" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (6).jpeg" data-badge="Fraîcheur">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.37.23 (6).jpeg" alt="Épicerie Fine & Sélection Magasin" loading="lazy">
                         <span class="catalog-card-badge">Fraîcheur</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Épicerie Fine & Sélection Magasin</h3>
                         <p>Produits sélectionnés par l'équipe SIGUI DA SAGO pour leur qualité et leur rapport qualité-prix.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20%C3%89picerie%20Fine" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">3 800 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-9" data-name="Épicerie Fine & Sélection Magasin" data-price="3800" data-img="WhatsApp Image 2026-07-18 at 15.37.23 (6).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20%C3%89picerie%20Fine%20%26%20S%C3%A9lection%20Magasin%20%283%20800%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 10 -->
-                <article class="catalog-card" data-category="biscuits">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (3).jpeg" alt="Gâteaux et Biscuits du goûter" loading="lazy">
+                <!-- Produit cat-10 -->
+                <article class="catalog-card" data-id="cat-10" data-name="Gâteaux, Cookie & Biscuits Goûter" data-price="1000" data-category="biscuits" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (3).jpeg" data-badge="Goûter">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (3).jpeg" alt="Gâteaux, Cookie & Biscuits Goûter" loading="lazy">
                         <span class="catalog-card-badge">Goûter</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Gâteaux, Cookie & Biscuits Goûter</h3>
                         <p>Biscuits croustillants, gâteaux fourrés et snacks parfaits pour les enfants et le goûter quotidien.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20G%C3%A2teaux%20%26%20Biscuits" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">1 000 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-10" data-name="Gâteaux, Cookie & Biscuits Goûter" data-price="1000" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (3).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20G%C3%A2teaux%2C%20Cookie%20%26%20Biscuits%20Go%C3%BBter%20%281%20000%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 11 -->
-                <article class="catalog-card" data-category="petit-dejeuner">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (4).jpeg" alt="Laits et Produits Laitiers" loading="lazy">
+                <!-- Produit cat-11 -->
+                <article class="catalog-card" data-id="cat-11" data-name="Laits en Poudre & Produits Laitiers" data-price="3200" data-category="petit-dejeuner" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (4).jpeg" data-badge="Laitier">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (4).jpeg" alt="Laits en Poudre & Produits Laitiers" loading="lazy">
                         <span class="catalog-card-badge">Laitier</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Laits en Poudre & Produits Laitiers</h3>
                         <p>Laits concentrés, lait en poudre pour le café/thé et produits laitiers essentiels pour le matin.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Laits%20%26%20Produits%20Laitiers" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">3 200 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-11" data-name="Laits en Poudre & Produits Laitiers" data-price="3200" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (4).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Laits%20en%20Poudre%20%26%20Produits%20Laitiers%20%283%20200%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 12 -->
-                <article class="catalog-card" data-category="epicerie">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (5).jpeg" alt="Conserves et Boîtes de sauces" loading="lazy">
+                <!-- Produit cat-12 -->
+                <article class="catalog-card" data-id="cat-12" data-name="Boîtes de Conserves & Sauces Prêtes" data-price="1800" data-category="epicerie" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (5).jpeg" data-badge="Conserves">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (5).jpeg" alt="Boîtes de Conserves & Sauces Prêtes" loading="lazy">
                         <span class="catalog-card-badge">Conserves</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Boîtes de Conserves & Sauces Prêtes</h3>
                         <p>Petits pois, maïs doux, sardines, thon en conserve et sauces tomates pour préparer vos plats rapidement.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Bo%C3%AEtes%20de%20Conserves" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">1 800 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-12" data-name="Boîtes de Conserves & Sauces Prêtes" data-price="1800" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (5).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Bo%C3%AEtes%20de%20Conserves%20%26%20Sauces%20Pr%C3%AAtes%20%281%20800%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 13 -->
-                <article class="catalog-card" data-category="epicerie">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (6).jpeg" alt="Épices et Bouillons" loading="lazy">
+                <!-- Produit cat-13 -->
+                <article class="catalog-card" data-id="cat-13" data-name="Épices, Bouillons & Condiments Locaux" data-price="1500" data-category="epicerie" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (6).jpeg" data-badge="Saveurs">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (6).jpeg" alt="Épices, Bouillons & Condiments Locaux" loading="lazy">
                         <span class="catalog-card-badge">Saveurs</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
-                        <h3>Épices, Bouillons & Condiments Lokaux</h3>
+                        <h3>Épices, Bouillons & Condiments Locaux</h3>
                         <p>Mélanges d'épices, poivre, bouillons de saveur et ingrédients traditionnels pour assaisonner vos repas.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20%C3%89pices%20%26%20Bouillons" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">1 500 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-13" data-name="Épices, Bouillons & Condiments Locaux" data-price="1500" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (6).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20%C3%89pices%2C%20Bouillons%20%26%20Condiments%20Locaux%20%281%20500%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 14 -->
-                <article class="catalog-card" data-category="epicerie">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (7).jpeg" alt="Pâtes et Riz parfumés" loading="lazy">
+                <!-- Produit cat-14 -->
+                <article class="catalog-card" data-id="cat-14" data-name="Pâtes Alimentaires & Riz Parfumés" data-price="2800" data-category="epicerie" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (7).jpeg" data-badge="Féculents">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (7).jpeg" alt="Pâtes Alimentaires & Riz Parfumés" loading="lazy">
                         <span class="catalog-card-badge">Féculents</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Pâtes Alimentaires & Riz Parfumés</h3>
                         <p>Spaghetti, macaronis, vermicelles et riz blanc parfumé de qualité supérieure en différents formats.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20P%C3%A2tes%20%26%20Riz" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">2 800 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-14" data-name="Pâtes Alimentaires & Riz Parfumés" data-price="2800" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (7).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20P%C3%A2tes%20Alimentaires%20%26%20Riz%20Parfum%C3%A9s%20%282%20800%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 15 -->
-                <article class="catalog-card" data-category="biscuits">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (8).jpeg" alt="Chips et Snacks salés" loading="lazy">
-                        <span class="catalog-card-badge">Aapéritif</span>
+                <!-- Produit cat-15 -->
+                <article class="catalog-card" data-id="cat-15" data-name="Chips Croustillantes & Snacks Salés" data-price="1200" data-category="biscuits" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (8).jpeg" data-badge="Apéritif">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (8).jpeg" alt="Chips Croustillantes & Snacks Salés" loading="lazy">
+                        <span class="catalog-card-badge">Apéritif</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Chips Croustillantes & Snacks Salés</h3>
-                        <p>Chips aperitif, cacahuètes grillees et petits gâteaux salés pour agrémenter vos moments en famille.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Chips%20%26%20Snacks%20Sal%C3%A9s" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <p>Chips apéritif, cacahuètes grillées et petits gâteaux salés pour agrémenter vos moments en famille.</p>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">1 200 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-15" data-name="Chips Croustillantes & Snacks Salés" data-price="1200" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (8).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Chips%20Croustillantes%20%26%20Snacks%20Sal%C3%A9s%20%281%20200%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Produit 16 -->
-                <article class="catalog-card" data-category="boissons">
-                    <div class="catalog-card-img">
-                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (9).jpeg" alt="Eau Minérale et Pack de boissons" loading="lazy">
+                <!-- Produit cat-16 -->
+                <article class="catalog-card" data-id="cat-16" data-name="Eau Minérale & Pack Rafraîchissant" data-price="2500" data-category="boissons" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (9).jpeg" data-badge="Hydratation">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-07-18 at 15.44.53 (9).jpeg" alt="Eau Minérale & Pack Rafraîchissant" loading="lazy">
                         <span class="catalog-card-badge">Hydratation</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                        <button type="button" class="btn-quick-preview" title="Aperçu rapide" aria-label="Aperçu rapide"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="catalog-card-body">
                         <h3>Eau Minérale & Pack Rafraîchissant</h3>
                         <p>Bouteilles d'eau minérale pure, packs familiaux et boissons gazeuses conservées au frais.</p>
-                        <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Eau%20Min%C3%A9rale%20%26%20Boissons" target="_blank" rel="noopener noreferrer" class="catalog-card-btn">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Commander sur WhatsApp
-                        </a>
+                        <div class="catalog-card-price-row">
+                            <div class="price-val">2 500 <small>FCFA</small></div>
+                        </div>
+                        <div class="catalog-actions-wrap">
+                            <button type="button" class="btn-add-cart" data-id="cat-16" data-name="Eau Minérale & Pack Rafraîchissant" data-price="2500" data-img="WhatsApp Image 2026-07-18 at 15.44.53 (9).jpeg">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <a href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20je%20souhaite%20commander%20%3A%20Eau%20Min%C3%A9rale%20%26%20Pack%20Rafra%C3%AEchissant%20%282%20500%20FCFA%29" target="_blank" rel="noopener noreferrer" class="btn-direct-wa" title="Commander direct sur WhatsApp" aria-label="Commander direct sur WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
                 </article>
 
+                <!-- Nouveaux produits ajoutés depuis les photos du magasin -->
+                <article class="catalog-card" data-id="cat-17" data-name="Sardines Belle France au piment" data-category="epicerie" data-badge="Conserve">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-11-19 at 23.36.00.jpeg" alt="Boîte de sardines Belle France au piment" loading="lazy">
+                        <span class="catalog-card-badge">Conserve</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Sardines Belle France au piment</h3>
+                        <p>Sardines en boîte au piment, pratiques pour accompagner vos repas.</p>
+                        <div class="catalog-price-on-request">Prix en magasin</div>
+                        <div class="catalog-actions-wrap">
+                            <a class="catalog-card-btn" href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20quel%20est%20le%20prix%20des%20sardines%20Belle%20France%20au%20piment%20%3F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Demander le prix</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="catalog-card" data-id="cat-18" data-name="Ketchup Heinz, pâtes et nouilles" data-category="epicerie" data-badge="Épicerie">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-11-19 at 23.36.0.jpeg" alt="Rayon de ketchup Heinz, pâtes et nouilles" loading="lazy">
+                        <span class="catalog-card-badge">Épicerie</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Ketchup Heinz, pâtes et nouilles</h3>
+                        <p>Retrouvez au magasin des sauces Heinz, des pâtes et des nouilles instantanées.</p>
+                        <div class="catalog-price-on-request">Prix en magasin</div>
+                        <div class="catalog-actions-wrap">
+                            <a class="catalog-card-btn" href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20quel%20est%20le%20prix%20du%20ketchup%20Heinz%2C%20des%20p%C3%A2tes%20et%20des%20nouilles%20%3F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Demander le prix</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="catalog-card" data-id="cat-19" data-name="Céréales fourrées au lait Belle France" data-category="petit-dejeuner" data-badge="Petit-déjeuner">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-11-19 at 23.36.4.jpeg" alt="Boîte de céréales fourrées au lait Belle France" loading="lazy">
+                        <span class="catalog-card-badge">Petit-déjeuner</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Céréales fourrées au lait Belle France</h3>
+                        <p>Céréales croustillantes fourrées au lait, pour le petit-déjeuner ou le goûter.</p>
+                        <div class="catalog-price-on-request">Prix en magasin</div>
+                        <div class="catalog-actions-wrap">
+                            <a class="catalog-card-btn" href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20quel%20est%20le%20prix%20des%20c%C3%A9r%C3%A9ales%20fourr%C3%A9es%20au%20lait%20Belle%20France%20%3F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Demander le prix</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="catalog-card" data-id="cat-20" data-name="Miel de fleurs liquide Belle France 250 g" data-category="epicerie" data-badge="Épicerie">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-11-19 at 23.36.07.jpeg" alt="Flacon de miel de fleurs liquide Belle France, 250 grammes" loading="lazy">
+                        <span class="catalog-card-badge">Épicerie</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Miel de fleurs liquide Belle France</h3>
+                        <p>Miel de fleurs liquide en flacon de 250 g.</p>
+                        <div class="catalog-price-on-request">Prix en magasin</div>
+                        <div class="catalog-actions-wrap">
+                            <a class="catalog-card-btn" href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20quel%20est%20le%20prix%20du%20miel%20de%20fleurs%20Belle%20France%20%3F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Demander le prix</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="catalog-card" data-id="cat-21" data-name="Vinaigre et assortiment de pâtes" data-category="epicerie" data-badge="Épicerie">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-11-19 at 23.36.010.jpeg" alt="Rayon de vinaigre et de pâtes alimentaires" loading="lazy">
+                        <span class="catalog-card-badge">Épicerie</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Vinaigre et assortiment de pâtes</h3>
+                        <p>Vinaigre d’alcool, pâtes Panzani et Belle France, ainsi que des nouilles instantanées.</p>
+                        <div class="catalog-price-on-request">Prix en magasin</div>
+                        <div class="catalog-actions-wrap">
+                            <a class="catalog-card-btn" href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20quel%20est%20le%20prix%20du%20vinaigre%20et%20des%20p%C3%A2tes%20%3F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Demander le prix</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="catalog-card" data-id="cat-22" data-name="Thon Belle France à la Catalane 135 g" data-category="epicerie" data-badge="Conserve">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-11-19 at 23.36.14.jpeg" alt="Boîte de thon Belle France à la Catalane, 135 grammes" loading="lazy">
+                        <span class="catalog-card-badge">Conserve</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Thon Belle France à la Catalane</h3>
+                        <p>Préparation de thon à la Catalane, en boîte de 135 g.</p>
+                        <div class="catalog-price-on-request">Prix en magasin</div>
+                        <div class="catalog-actions-wrap">
+                            <a class="catalog-card-btn" href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20quel%20est%20le%20prix%20du%20thon%20Belle%20France%20%C3%A0%20la%20Catalane%20%3F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Demander le prix</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="catalog-card" data-id="cat-23" data-name="Macaroni Lustucru aux œufs frais 250 g" data-category="epicerie" data-badge="Pâtes">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-11-19 at 23.jpeg" alt="Paquet de macaroni Lustucru aux œufs frais, 250 grammes" loading="lazy">
+                        <span class="catalog-card-badge">Pâtes</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Macaroni Lustucru aux œufs frais</h3>
+                        <p>Macaroni aux œufs frais, paquet de 250 g, cuisson en 5 minutes.</p>
+                        <div class="catalog-price-on-request">Prix en magasin</div>
+                        <div class="catalog-actions-wrap">
+                            <a class="catalog-card-btn" href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20quel%20est%20le%20prix%20des%20macaroni%20Lustucru%20%3F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Demander le prix</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="catalog-card" data-id="cat-24" data-name="Huile d’olive extra vierge Torino" data-category="epicerie" data-badge="Cuisine">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-11-19 at 23..jpeg" alt="Bouteille d’huile d’olive extra vierge Torino" loading="lazy">
+                        <span class="catalog-card-badge">Cuisine</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Huile d’olive extra vierge Torino</h3>
+                        <p>Huile d’olive extra vierge espagnole Torino, pour la cuisine et l’assaisonnement.</p>
+                        <div class="catalog-price-on-request">Prix en magasin</div>
+                        <div class="catalog-actions-wrap">
+                            <a class="catalog-card-btn" href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20quel%20est%20le%20prix%20de%20l%E2%80%99huile%20d%E2%80%99olive%20Torino%20%3F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Demander le prix</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="catalog-card" data-id="cat-25" data-name="Beurre Belle France Petit Beurre Original" data-category="epicerie" data-badge="Laitier">
+                    <div class="product-media">
+                        <img src="WhatsApp Image 2026-11-19 at 23.3.jpeg" alt="Paquet de beurre Belle France Petit Beurre Original" loading="lazy">
+                        <span class="catalog-card-badge">Laitier</span>
+                        <span class="stock-pill in-stock"><i class="fas fa-check-circle"></i> En stock</span>
+                    </div>
+                    <div class="catalog-card-body">
+                        <h3>Beurre Belle France Petit Beurre</h3>
+                        <p>Beurre Belle France Original, pur beurre.</p>
+                        <div class="catalog-price-on-request">Prix en magasin</div>
+                        <div class="catalog-actions-wrap">
+                            <a class="catalog-card-btn" href="https://wa.me/22370259494?text=Bonjour%20SIGUI%20DA%20SAGO%2C%20quel%20est%20le%20prix%20du%20beurre%20Belle%20France%20Petit%20Beurre%20%3F" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Demander le prix</a>
+                        </div>
+                    </div>
+                </article>
             </div>
 
             <!-- Message Aucun Résultat -->
@@ -326,6 +652,125 @@
     <a href="https://wa.me/22370259494" class="whatsapp" title="Discuter sur WhatsApp" target="_blank" rel="noopener noreferrer" aria-label="Contacter SIGUI DA SAGO sur WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
+
+    <!-- TIROIR DE PANIER (DRAWER) -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Mon Panier">
+        <div class="cart-drawer-header">
+            <div class="cart-drawer-title">
+                <i class="fas fa-shopping-basket"></i>
+                <h3>Mon Panier</h3>
+                <span class="cart-drawer-count" id="drawerCartCount">(0 article)</span>
+            </div>
+            <button class="cart-drawer-close" id="cartCloseBtn" aria-label="Fermer le panier">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-drawer-body" id="cartItemsList">
+            <!-- Rempli dynamiquement par JS -->
+        </div>
+        <div class="cart-drawer-footer" id="cartDrawerFooter">
+            <div class="cart-summary">
+                <div class="summary-line">
+                    <span>Sous-total</span>
+                    <strong id="cartSubtotal">0 FCFA</strong>
+                </div>
+                <div class="summary-line">
+                    <span>Livraison</span>
+                    <span class="delivery-badge-calc">Confirmé sur WhatsApp</span>
+                </div>
+                <div class="summary-line total-line">
+                    <span>Total estimé</span>
+                    <strong id="cartTotal">0 FCFA</strong>
+                </div>
+            </div>
+            <div class="cart-checkout-form">
+                <div class="checkout-input-group">
+                    <input type="text" id="cartCustomerName" placeholder="Votre nom complet *" required>
+                </div>
+                <div class="checkout-input-group">
+                    <input type="tel" id="cartCustomerPhone" placeholder="Téléphone WhatsApp *" required>
+                </div>
+                <div class="checkout-input-group">
+                    <input type="text" id="cartCustomerAddress" placeholder="Lieu ou repère à Niamana *" required>
+                </div>
+                <div class="checkout-input-group">
+                    <input type="text" id="cartCustomerNote" placeholder="Note facultative (ex. monnaie sur 5000...)">
+                </div>
+                <button type="button" class="btn btn-whatsapp-checkout" id="cartCheckoutBtn">
+                    <i class="fab fa-whatsapp"></i> Commander sur WhatsApp
+                </button>
+                <button type="button" class="btn-clear-cart" id="clearCartBtn">
+                    <i class="fas fa-trash-alt"></i> Vider le panier
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MODAL APERÇU RAPIDE (QUICK VIEW) -->
+    <div class="modal-overlay" id="quickViewOverlay"></div>
+    <div class="product-modal" id="quickViewModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="modal-close" id="modalCloseBtn" aria-label="Fermer l'aperçu"><i class="fas fa-times"></i></button>
+        <div class="modal-grid">
+            <div class="modal-img-col">
+                <img id="modalProductImg" src="logo-mark.webp" alt="">
+                <span class="modal-badge" id="modalProductBadge">En stock</span>
+            </div>
+            <div class="modal-info-col">
+                <span class="modal-category" id="modalProductCategory">Épicerie</span>
+                <h3 id="modalProductTitle">Titre du produit</h3>
+                <div class="modal-price" id="modalProductPrice">2 000 FCFA</div>
+                <p class="modal-desc" id="modalProductDesc">Description détaillée du produit.</p>
+                <div class="modal-stock-status"><i class="fas fa-check-circle"></i> Disponible au magasin de Niamana</div>
+                <div class="modal-qty-row">
+                    <span>Quantité :</span>
+                    <div class="qty-selector">
+                        <button type="button" id="modalQtyMinus" aria-label="Moins">-</button>
+                        <input type="number" id="modalQtyInput" value="1" min="1" max="50" aria-label="Quantité">
+                        <button type="button" id="modalQtyPlus" aria-label="Plus">+</button>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-modal-add" id="modalAddToCartBtn">
+                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                    </button>
+                    <a id="modalDirectWaBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-modal-wa">
+                        <i class="fab fa-whatsapp"></i> WhatsApp direct
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BARRE DE NAVIGATION MOBILE AU POUCE -->
+    <nav class="mobile-bottom-bar" aria-label="Navigation mobile">
+        <a href="index.html#accueil" class="bottom-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Accueil</span>
+        </a>
+        <a href="catalogue.html" class="bottom-nav-item active">
+            <i class="fas fa-store"></i>
+            <span>Catalogue</span>
+        </a>
+        <button type="button" class="bottom-nav-item cart-bottom-btn" id="mobileCartBtn" aria-label="Panier">
+            <div class="bottom-cart-icon">
+                <i class="fas fa-shopping-basket"></i>
+                <span class="bottom-cart-badge" id="mobileCartBadge">0</span>
+            </div>
+            <span>Panier</span>
+        </button>
+        <a href="https://wa.me/22370259494" target="_blank" rel="noopener noreferrer" class="bottom-nav-item wa-item" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="tel:+22370259494" class="bottom-nav-item" aria-label="Téléphone">
+            <i class="fas fa-phone"></i>
+            <span>Appel</span>
+        </a>
+    </nav>
+
+    <!-- CONTENEUR DES TOASTS -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
     <footer>
         <div class="footer-wrapper">
@@ -375,6 +820,6 @@
         </div>
     </footer>
 
-    <script src="site.js"></script>
+    <script src="site.js" defer></script>
 </body>
 </html>
